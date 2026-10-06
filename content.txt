@@ -1,0 +1,250 @@
+Chemizen Labs - Advancing the Science of Education
+Home
+About Us
+Services
+CADD Workshops
+IJPCSR Journal
+Founder
+Contact Us
+Download Brochure
+Consultation
+ISO Certified • MSME Registered • Scientific Consultancy
+"Advancing the Science of Education"
+Computational Drug Discovery, CADD Training & Research Intelligence.
+Chemizen Labs delivers industry-grade training and rigorous research support across Computer-Aided Drug Design (CADD), Molecular Docking, ADME/Tox Prediction, QSAR, and PASS Biological Modeling — bridging academia with modern pharmaceutical innovation.
+
+Explore Our Services
+Brochure (PDF)
+ISO Certified Standards
+MSME Registered
+Academic & Institutional Reach
+In-Silico Suite
+CADD Computational Pipeline
+Active Engine
+Docking Energy (ΔG)
+-10.4 kcal/mol
+QSAR Model R²
+0.942 (Valid)
+Drug-Likeness
+Lipinski 0 Violations
+PASS Prediction (Pa)
+> 0.820 Active
+Integrated Research Support
+ISO • MSME
+From molecular mechanics to publication-ready figures, thesis guidance, and patent filings.
+
+AutoDock Vina
+PyMOL
+SwissADME
+Discovery Studio
+PASS Online
+ProTox-II
+GROMACS
+Institutional Overview
+Bridging Pharmaceutical Science & In-Silico Innovation
+Chemizen Labs is a premier scientific consultancy dedicated to empowering learners, faculty, and research institutions with practical, industry-ready computational chemistry and pharmacology skills.
+
+ISO Certified
+Adhering to international benchmarks in educational rigor, data integrity, and quality consulting protocols.
+
+MSME Registered
+Recognized Government of India enterprise fostering scientific skill development and academic research advancement.
+
+chemizenlabs.com
+Dedicated platform hosting workshops, research intelligence, journal publishing, and mentorship pipelines.
+
+Who We Work With
+Customized computational workflows and mentorship designed for every tier of the life-science ecosystem.
+
+Students
+B.Pharm, M.Pharm, M.Sc., and Ph.D. scholars seeking foundational to advanced CADD mastery.
+
+Academic Researchers
+Faculty and principal investigators needing rigorous in-silico validation for experimental findings.
+
+Pharma Learners
+Early-career pharmaceutical scientists aiming to upskill in computational drug discovery toolchains.
+
+Biotech Professionals
+Industry scientists requiring rapid target identification, ADME profiling, and lead optimization.
+
+Life-Science Institutions
+Colleges, universities, and laboratories organizing faculty development programs & workshops.
+
+Comprehensive Capabilities
+Eight Core Scientific & Academic Offerings
+End-to-end computational pharmacology, structural bioinformatics, manuscript preparation, and hands-on skill development tailored for high-impact outcomes.
+
+01
+CADD & Molecular Docking / PASS / QSAR
+Structure-based and ligand-based drug design, receptor-ligand interaction modeling, 2D/3D-QSAR statistical modeling, and PASS biological activity spectrum forecasting.
+
+AutoDock
+QSAR
+PASS
+Inquire for Project
+02
+ADME/Tox & Target Identification
+In-silico pharmacokinetic profiling (absorption, distribution, metabolism, excretion), organ toxicity risk screening, and therapeutic target identification & validation.
+
+SwissADME
+ProTox
+Tox Profiling
+Inquire for Project
+03
+Molecular Design & Computational Workflows
+De novo compound generation, bioisosteric modifications, pharmacophore mapping, library curation, and automated in-silico screening pipeline architecture.
+
+Virtual Screening
+Lead Optimization
+Inquire for Project
+04
+Manuscripts, Patents & Grant Support
+High-impact scientific paper drafting, publication-grade 3D graphics, patent prior-art evaluation, and competitive research grant proposal formulation.
+
+Peer-Review
+IP & Patents
+Grant Drafting
+Inquire for Project
+05
+Thesis & Dissertation Guidance
+Structured computational and academic guidance for M.Pharm, M.S., and Ph.D. scholars—from research question formulation to methodology execution and defense.
+
+M.Pharm / Ph.D.
+Methodology
+Inquire for Project
+06
+Hands-on Workshops (Industry Software)
+Intensive live workshops on PyMOL, AutoDock, Discovery Studio Visualizer, SwissADME, ProTox-II, and molecular simulation packages with certified participation.
+
+Live Labs
+Industry Tools
+Certification
+Inquire for Project
+07
+Scientific Mentoring & Career Development
+Dedicated 1-on-1 mentorship for students and researchers aiming for careers in pharmaceutical R&D, computational chemistry labs, and academic faculty roles.
+
+1-on-1 Guidance
+R&D Pathways
+Inquire for Project
+08
+Research Data Analysis & Interpretation
+Rigorous statistical treatment, binding energy evaluation, correlation matrices, phytochemical screening analysis, and clear graphical representation.
+
+Statistical Models
+Visual Data
+Inquire for Project
+Scholarly Publishing
+Research Intelligence & Academic Journal
+Advancing rigorous, open-access pharmaceutical scholarship through our forthcoming international peer-reviewed publication.
+
+Upcoming Peer-Reviewed Journal
+IJPCSR
+International Journal of Pharmaceutical Chemistry Scientific Research
+Chemizen Labs is actively deploying IJPCSR on the Open Journal Systems (OJS) framework. The journal will serve as a premier platform for high-impact research spanning computational pharmacology, computer-aided drug design, phytochemistry, and synthetic pharmaceutical chemistry.
+
+Double-blind rigorous peer review
+Open Access distribution for high citation reach
+Fast-track editorial workflows via OJS
+Focus on CADD, Natural Products & Medicinal Chem
+IJPCSR Journal Portal & Guidelines →
+Submit Abstract / Paper
+OPEN JOURNAL SYSTEM • PEER REVIEWED
+IJPCSR
+Vol 1 • Issue 1 (Inaugural Edition)
+Target Research Disciplines:
+Computational Chemistry & Molecular Docking
+ADMET In-Silico & Toxicity Modeling
+Medicinal Plant & Phytochemical Discoveries
+Structure-Activity Relationships (QSAR/QSPR)
+Novel Synthetic Pathways & Bioactive Leads
+Powered by Open Journal Systems
+OJS 3.x
+Skill Acceleration
+Hands-on Workshops & Specialized Mentoring
+Equipping researchers and pharmaceutical scholars with practical, industry-grade computational proficiencies through step-by-step masterclasses.
+
+Industry Software Mastery
+Direct practical training on licensed and open-source tools: PyMOL 3D visualization, AutoDock Vina, Discovery Studio, SwissADME, and PASS Online.
+
+Real ligand & protein dataset preparation
+Grid box optimization & binding pocket analysis
+Publication-grade 3D rendering
+Tailored Academic Curricula
+Custom modules tailored for B.Pharm, M.Pharm (Pharmaceutical Chemistry, Pharmacology), and Ph.D. research projects.
+
+Thesis hypothesis formulation
+Phytochemical constituent screening
+In-silico validation of laboratory assays
+Institutional Faculty Development
+Partnering with pharmacy colleges and universities for National/International workshops and hands-on FDP programs.
+
+Live online or on-campus delivery
+ISO-certified certificates of completion
+Post-workshop project consultation
+Explore 5 Specialized CADD Workshop Tracks
+We configure customized syllabus lengths (1-Day Intensive, 3-Day Hands-on, or 2-Week Advanced CADD Bootcamps).
+
+View Syllabus & Book Workshop →
+MLM
+Mohan L. Manchalkar
+Founder & CEO
+M.Pharm (Pharm. Chem)
+Leadership & Vision
+Mohan L. Manchalkar
+Founder & CEO, Chemizen Labs • Former Assistant Professor
+Mohan L. Manchalkar is the Founder & CEO of Chemizen Labs, bringing a strong academic and research foundation in pharmaceutical sciences to the company's mission. He holds an M.Pharm in Pharmaceutical Chemistry and has served as an Assistant Professor in pharmaceutical education.
+
+His core research interests span computational pharmacology, computer-aided drug design (CADD), and medicinal plant research. Through Chemizen Labs, he focuses on translating this deep academic and computational expertise into structured, industry-ready training and high-impact consulting services for students, researchers, and life-science institutions worldwide.
+
+Academic Background
+M.Pharm (Pharm. Chemistry)
+Pedagogical Experience
+Former Assistant Professor
+Key Research Focus
+CADD & Phytochemistry
+Connect with Founder
+LinkedIn Profile
+Official Program Brochure Available
+1-Month Hands-on Internship: Molecular Docking & CADD
+Download the official brochure for our 12-session live internship covering AutoDock 4, AutoDock Vina, SWISS-MODEL, ADMET profiling, and PyMOL 3D rendering. (17th Sept – 16th Oct • E-Certificate provided).
+
+Download Brochure PDF
+Register via Google Form →
+* Live on Google Meet (07:00 PM – 08:00 PM IST) • Recordings available for all sessions
+Get In Touch
+Initiate Your Research Collaboration
+Reach out directly for CADD training schedules, institutional workshops, research project support, or publication assistance.
+
+Direct Contact
+Chemizen Labs
+ISO-certified and MSME-registered scientific consultancy. We respond to all research and workshop inquiries within 24 hours.
+
+Mobile & WhatsApp
++91 63610 09705
+Official Email
+chemizenlabs@gmail.com
+Web Portal
+chemizenlabs.com
+Connect on Official Social Channels
+Send Research / Training Inquiry
+Fill in your requirements below for custom project scoping or workshop bookings.
+
+
+Select a Service or Workshop...
+Project Details / Message *
+Please describe your research scope, target software, molecule classes, or desired workshop dates...
+
+Submit Inquiry to Chemizen Labs
+Inquiry Successfully Logged!
+Thank you for reaching out to Chemizen Labs. Our research coordinator will contact you at your email/phone promptly.
+Send copy directly via WhatsApp →
+Send Email copy
+Chat on WhatsApp
+Chemizen Labs
+CHEMIZEN LABS
+ADVANCING THE SCIENCE OF EDUCATION
+ISO-certified & MSME-registered scientific consultancy offering computer-aided drug design (CADD) training, research intelligence, and academic mentoring.
+
+Website: chemizenlabs.com
