@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { workshop } from "@/lib/workshop";
+import { Brand } from "./Brand";
 export function Footer() {
   return (
     <footer className="footer">
@@ -22,12 +23,7 @@ export function Footer() {
         <div className="footer-columns">
           <div className="footer-brand">
             <Link href="/" className="brand">
-              <span className="brand-mark">
-                c<span>·</span>
-              </span>
-              <span>
-                chemizen<span className="brand-labs">LABS</span>
-              </span>
+              <Brand />
             </Link>
             <p>
               CADD & molecular docking
@@ -46,6 +42,7 @@ export function Footer() {
             <Link href="/about">About Chemizen</Link>
             <Link href="/insights">Learning guides</Link>
             <Link href="/register">Registration</Link>
+            <a href="https://www.linkedin.com/company/chemizenlabs/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
           </div>
           <div>
             <span className="eyebrow">CONTACT</span>
@@ -66,10 +63,10 @@ export function Footer() {
       </div>
       <div className="footer-earth">
         <Image
-          src="/assets/earth-footer.png"
+          src="/assets/earth-footer-v2.png"
           alt="Earth’s blue horizon seen from space"
           width={1983}
-          height={80}
+          height={428}
           sizes="100vw"
         />
       </div>

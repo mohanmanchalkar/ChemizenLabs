@@ -18,11 +18,11 @@ export default function Register() {
           <em>workshop.</em>
         </>
       }
-      intro={`Workshops with Chemizen Labs cost ${workshop.fee} and last up to 15 days. The registration form is not available yet. Contact us for the next batch dates.`}
+      intro="Choose a Network Pharmacology & CADD workshop or a Molecular Docking internship. The brochure describes September–October 2026 cohorts. Contact us to confirm the next intake, fee and registration link."
     >
       <div className="wrap pending-panel">
         <span className="status-dot" />
-        <span>Registration link coming soon</span>
+        <span>Next intake: enquire for availability</span>
         <Link href={workshop.enquiryHref} className="button button-ink">
           Ask about the next workshop ↗
         </Link>

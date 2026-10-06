@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
+import { Brand } from "./Brand";
 const links = [
   ["Workshops", "/workshops"],
   ["Services", "/services"],
@@ -133,12 +134,7 @@ export function Header() {
         }}
       >
         <Link href="/" className="brand" aria-label="Chemizen Labs home">
-          <span className="brand-mark">
-            c<span>·</span>
-          </span>
-          <span>
-            chemizen<span className="brand-labs">LABS</span>
-          </span>
+          <Brand />
         </Link>
         <nav
           ref={nav}

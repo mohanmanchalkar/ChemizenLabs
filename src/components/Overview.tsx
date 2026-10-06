@@ -38,13 +38,14 @@ export function Overview() {
             <h2>
               Practical CADD training
               <br />
-              <em>at Chemizen Labs.</em>
+              <em>by Chemizen Labs.</em>
             </h2>
           </div>
           <p>
-            Chemizen Labs teaches molecular docking and computational
-            drug-design tools in short workshops. Ask about the next batch, the
-            software covered and the session schedule before joining.
+            Chemizen Labs offers online workshops and internships in network
+            pharmacology, molecular docking and computational drug discovery.
+            Work through structure preparation, target analysis and molecular
+            visualisation, with time to understand what the results mean.
           </p>
         </div>
         <div className="overview-grid">

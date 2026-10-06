@@ -14,7 +14,7 @@ export default function Services() {
           <em>research support.</em>
         </>
       }
-      intro="Browse the topics we teach and the research services we offer. The ₹600 workshop fee applies to workshops; other services are scoped and priced separately."
+      intro="Browse computational training and research support, from network pharmacology and molecular docking to data interpretation and scientific writing. Ask us about the scope and fees for your programme or project."
     >
       <div className="wrap service-list">
         {services.map((s, i) => (

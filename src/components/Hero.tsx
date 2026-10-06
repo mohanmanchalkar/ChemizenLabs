@@ -19,7 +19,7 @@ export function Hero() {
       <div className="hero-content wrap">
         <div className="hero-intro">
           <span className="eyebrow">
-            <span className="status-dot" /> CADD & MOLECULAR DOCKING WORKSHOPS
+            <span className="status-dot" /> NETWORK PHARMACOLOGY & DRUG DISCOVERY
           </span>
           <h1>
             Learn molecular
@@ -27,15 +27,15 @@ export function Hero() {
             <em>docking.</em>
           </h1>
           <p>
-            Practical training in AutoDock, PyMOL and ADMET analysis with{" "}
-            Chemizen Labs.
+            Hands-on training in molecular docking, network pharmacology and
+            computational drug discovery. Learn the tools. Understand the results.
           </p>
         </div>
         <div className="hero-bottom">
           <div className="hero-glass">
             <div className="hero-glass-heading">
               <span className="eyebrow">
-                SHORT WORKSHOPS · PRACTICAL TRAINING
+                ONLINE WORKSHOPS · PRACTICAL TRAINING
               </span>
             </div>
             <div className="workshop-quick-facts">
@@ -45,8 +45,8 @@ export function Hero() {
               </div>
             </div>
             <p>
-              Learn to prepare molecules, run docking studies and read the
-              results.
+              Prepare molecules, explore target networks and interpret docking
+              results with guidance from Chemizen Labs.
             </p>
             <div className="actions">
               <Link href="/register" className="button button-light">

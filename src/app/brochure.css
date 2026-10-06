@@ -1,0 +1,98 @@
+/* Preserve source pixels; adapt the logo's white backing through blending. */
+.brand-symbol { display: block; position: relative; width: 42px; height: 46px; overflow: hidden; flex: none; mix-blend-mode: multiply; }
+.brand-symbol img { position: absolute; width: 104px; height: 104px; max-width: none; left: -30px; top: -17px; }
+.brand-wordmark { font-family: var(--font-serif), sans-serif; font-size: 19px; letter-spacing: -.035em; font-weight: 700; }
+.brand-wordmark .brand-labs { letter-spacing: .38em; font-size: 10px; margin-top: 7px; }
+.header[data-over-hero="true"] .brand-symbol, .footer .brand-symbol { mix-blend-mode: screen; filter: grayscale(1) invert(1); }
+.hero h1 em, .script-accent { font-family: var(--font-script), cursive; font-weight: 400; font-style: normal; letter-spacing: -.025em; font-size: 1.2em; line-height: 1.1; }
+.hero h1 { overflow-wrap: normal; }
+.hero-bottom { margin-top: 30px; align-items: end; }
+.hero-glass { margin-top: 0; }
+.credentials { background: #0c141a; color: #abb8b5; padding: 45px 0 26px; }
+.credential-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; align-items: center; padding-bottom: 30px; border-bottom: 1px solid #ffffff20; }
+.credential-mark { display: flex; align-items: center; justify-content: center; gap: 12px; }
+.credential-mark svg { width: 33px; height: 33px; flex: none; stroke-width: 1.2; }
+.credential-mark strong { display: block; font-size: 22px; font-family: var(--font-serif), sans-serif; font-weight: 500; }
+.credential-mark strong b { font-size: 14px; font-weight: 500; }
+.credential-mark small { display: block; font-size: 13px; margin-top: 4px; }
+.credential-mark:nth-child(2) { flex-direction: column; gap: 0; }
+.msme-mark { font-size: 31px; font-weight: 800; letter-spacing: -.06em; line-height: 1; }
+.credentials p { text-align: center; margin-top: 17px; font-size: 12px; color: #9daaa7; }
+.credentials p a { text-decoration: underline; text-underline-offset: 3px; }
+.programmes { background: #eeeee7; }
+.programme-list { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); border-top: 1px solid #cbd0c3; }
+.programme { display: grid; grid-template-columns: 35px minmax(0,1fr); gap: 18px; padding: 35px 36px 35px 0; }
+.programme + .programme { border-left: 1px solid #cbd0c3; padding-left: 36px; }
+.programme-number { color: #747c6a; font-size: 15px; padding-top: 4px; }
+.programme h3 { font-size: clamp(25px,2.6vw,34px); line-height: 1.2; margin: 18px 0; }
+.programme p, .programme li { color: #525d50; line-height: 1.8; }
+.programme ul { padding-left: 20px; }
+.programme li { margin-top: 10px; }
+.programme .cohort-note { font-size: 14px; padding-top: 16px; border-top: 1px solid #cbd0c3; }
+.programme .text-link { margin-top: 24px; }
+.programme-foot { border-top: 1px solid #cbd0c3; padding-top: 28px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+.programme-foot p { max-width: 660px; font-size: 15px; color: #5a6355; }
+.programme-foot a { flex-shrink: 0; }
+.founder-portrait { margin: 0; background: #e8e0d3; position: relative; overflow: hidden; border-radius: 140px 140px 8px 8px; padding: 48px 24px 0; isolation: isolate; }
+.founder-portrait .eyebrow { text-align: center; font-size: 11px; position: relative; z-index: 1; }
+.founder-portrait img { position: relative; width: 100%; height: auto; mix-blend-mode: multiply; margin-top: 22px; }
+.portrait-orbit { position: absolute; inset: 22% -20% -20%; border: 1px solid #bcae99; border-radius: 50%; transform: rotate(-25deg); }
+.portrait-orbit::before, .portrait-orbit::after { content: ""; position: absolute; border: 1px solid #bcae99; border-radius: inherit; inset: 25px; }
+.portrait-orbit::after { inset: 50px; }
+.founder-portrait figcaption { background: #24352d; color: #f5eee1; position: relative; margin-inline: -24px; padding: 18px 24px; font: 35px/1.2 var(--font-script), cursive; text-align: center; }
+.footer-earth { margin-top: 18px; min-height: 0; }
+.footer-earth img { width: 100%; height: auto; min-height: 0; object-fit: contain; }
+/* Let content tracks shrink and contain decorative graphics on small screens. */
+html, body { max-width: 100%; }
+body { overflow-x: clip; }
+main, .wrap, .hero-content, .section-top, .overview-grid, .protein-stage, .offering-track, .carousel-intro, .journal-feature, .journal-cover, .workshop-feature, .enquiry-layout { min-width: 0; }
+.wrap > *, .section-top > *, .overview-grid > *, .workshop-feature > *, .enquiry-layout > * { min-width: 0; }
+.protein-canvas canvas { max-width: 100%; }
+.button { max-width: 100%; }
+.button svg, .text-link svg, .status-dot { flex-shrink: 0; }
+.mobile-menu { max-height: calc(100dvh - 125px); overflow-y: auto; }
+.insights-listing .insight-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+@media (max-width: 1000px) {
+  .credential-strip { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 28px 16px; }
+  .hero-bottom { gap: 24px; }
+  .hero-glass { width: auto; flex: 1; min-width: 0; }
+  .programme { padding-right: 24px; }
+  .programme + .programme { padding-left: 24px; }
+  .programme-foot { align-items: flex-start; flex-direction: column; }
+}
+@media (max-width: 760px) {
+  .hero-content { width: calc(100% - 40px); }
+  .hero h1 { font-size: clamp(39px, 10vw, 61px); line-height: 1.1; }
+  .hero h1 em { line-height: 1.2; }
+  .hero-intro .eyebrow { letter-spacing: .09em; font-size: 11px; align-items: baseline; }
+  .hero-bottom { display: block; margin-top: 30px; }
+  .hero-glass, .video-placeholder { width: 100%; min-width: 0; }
+  .hero-glass { padding: 23px 20px; }
+  .video-placeholder { max-width: none; }
+  .header .brand { gap: 5px; }
+  .brand-symbol { width: 33px; height: 38px; }
+  .brand-symbol img { width: 82px; height: 82px; left: -24px; top: -13px; }
+  .brand-wordmark { font-size: 16px; }
+  .brand-wordmark .brand-labs { font-size: 9px; }
+  .credentials { padding-top: 34px; }
+  .credential-mark { justify-content: flex-start; gap: 8px; }
+  .credential-mark:nth-child(2) { align-items: flex-start; }
+  .credential-mark strong { font-size: 18px; }
+  .credential-mark strong b { display: block; font-size: 13px; }
+  .credential-mark small { font-size: 12px; }
+  .credential-mark svg { width: 27px; height: 27px; }
+  .programme-list { grid-template-columns: 1fr; }
+  .programme, .programme + .programme { padding: 28px 0; border-left: 0; }
+  .programme + .programme { border-top: 1px solid #cbd0c3; }
+  .programmes h2 { font-size: clamp(30px,8vw,42px); }
+  .programme h3 { text-wrap: auto; }
+  .carousel-intro { width: 100%; max-width: none; }
+  .offering-bottom { flex-wrap: wrap; }
+  .journal-cover strong { font-size: clamp(46px,12vw,72px); }
+  .journal-cover strong > span { font-size: 38px; }
+  .protein-caption, .protein-controls { flex-wrap: wrap; gap: 12px; }
+  .founder-portrait { max-width: 440px; margin-inline: auto; padding-top: 40px; }
+  .footer-invitation h2 { font-size: clamp(30px,8.2vw,45px); }
+  .insights-listing .insight-grid { grid-template-columns: 1fr; }
+  .process-figure { flex-wrap: wrap; }
+}

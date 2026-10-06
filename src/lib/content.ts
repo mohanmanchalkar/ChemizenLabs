@@ -33,11 +33,11 @@ export const services = [
   },
   {
     slug: "molecular-design",
-    title: "Molecular design & workflows",
-    short: "Compound screening, pharmacophore mapping and molecular design.",
+    title: "Network pharmacology & molecular design",
+    short: "Explore compounds, target networks and biological pathways.",
     description:
-      "Support for molecular design, bioisosteric modifications, pharmacophore mapping, library curation and in-silico screening pipelines.",
-    tags: ["Virtual screening", "Lead optimization"],
+      "Study compound–target relationships with STRING, Cytoscape and KEGG, then connect network analysis to a documented molecular-design or screening workflow.",
+    tags: ["STRING / Cytoscape", "KEGG pathways"],
     audience:
       "Research groups developing reproducible screening and molecular-design approaches.",
     steps: [
@@ -80,7 +80,7 @@ export const services = [
     slug: "hands-on-workshops",
     title: "Hands-on scientific workshops",
     short: `Practical software training · ${workshop.duration.toLowerCase()}.`,
-    description: `Workshops with Chemizen Labs on AutoDock, PyMOL, Discovery Studio Visualizer and ADMET tools. The fee is ${workshop.fee}, with each workshop lasting up to 15 days. Contact us for the next batch syllabus and dates.`,
+    description: "Chemizen Labs offers short Network Pharmacology & CADD workshops and a separate one-month Molecular Docking internship. Training covers molecular preparation, docking, visualisation and property prediction. Contact us for the next intake, syllabus and fees.",
     tags: ["Live learning", "Real datasets", "Practical tools"],
     audience:
       "Students, faculty and institutions seeking applied computational training.",

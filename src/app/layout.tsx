@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Source_Sans_3, IBM_Plex_Sans } from "next/font/google";
+import { Source_Sans_3, IBM_Plex_Sans, Allura } from "next/font/google";
 import { Header } from "@/components/Header";
 import "./globals.css";
 import "./effects.css";
 import "./readability.css";
+import "./brochure.css";
+const script = Allura({ subsets: ["latin"], weight: "400", variable: "--font-script", display: "swap" });
 const sans = Source_Sans_3({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s | Chemizen Labs",
   },
   description:
-    "Learn molecular docking, AutoDock, PyMOL and ADMET analysis with Chemizen Labs. Practical workshops lasting up to 15 days.",
+    "Hands-on online workshops and internships in network pharmacology, molecular docking and computational drug discovery with Chemizen Labs.",
   icons: { icon: "/favicon.svg" },
 };
 export default function RootLayout({
@@ -30,7 +32,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
-      <body className={`${sans.variable} ${serif.variable}`}>
+      <body className={`${sans.variable} ${serif.variable} ${script.variable}`}>
         <Header />
         {children}
       </body>

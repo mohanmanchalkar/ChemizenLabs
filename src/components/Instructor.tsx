@@ -1,23 +1,16 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 export function Instructor() {
   return (
     <section className="instructor section">
       <div className="wrap instructor-layout">
-        <div
-          className="instructor-monogram"
-          aria-label="Typographic placeholder for instructor portrait"
-        >
-          <span className="eyebrow">YOUR WORKSHOP TRAINER</span>
-          <span className="monogram">
-            MLM<span>·</span>
-          </span>
-          <span className="monogram-caption">
-            MOHAN L. MANCHALKAR
-            <br />
-            FOUNDER & TRAINER
-          </span>
-        </div>
+        <figure className="founder-portrait">
+          <span className="portrait-orbit" aria-hidden="true" />
+          <span className="eyebrow">THE PERSON BEHIND THE TRAINING</span>
+          <Image src="/assets/founder.jpeg" alt="Mohan L. Manchalkar, founder and trainer at Chemizen Labs" width={1198} height={1313} sizes="(max-width: 760px) 90vw, 40vw" />
+          <figcaption>From curiosity to discovery.</figcaption>
+        </figure>
         <div className="instructor-copy">
           <span className="eyebrow">05 / MEET THE TRAINER</span>
           <h2>

@@ -1,100 +1,19 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
+import { Programmes } from "@/components/Programmes";
 import { workshop } from "@/lib/workshop";
-export const metadata = { title: "CADD workshops · ₹600 · Up to 15 days" };
+export const metadata = { title: "Network Pharmacology, CADD Workshops & Internships" };
 export default function Workshops() {
-  return (
-    <PageShell
-      eyebrow="WORKSHOPS AT CHEMIZEN LABS"
-      title={
-        <>
-          CADD & molecular
-          <br />
-          <em>docking workshops.</em>
-        </>
-      }
-      intro={`Learn the tools used in computational drug-design studies. Workshops cost ${workshop.fee} and last up to 15 days, depending on the topic.`}
-    >
-      <dl className="wrap workshop-summary">
-        <div>
-          <dt>Workshop fee</dt>
-          <dd>{workshop.fee}</dd>
-        </div>
-        <div>
-          <dt>Duration</dt>
-          <dd>{workshop.duration}</dd>
-        </div>
-        <div>
-          <dt>Organised by</dt>
-          <dd>Chemizen Labs</dd>
-        </div>
-      </dl>
-      <div className="wrap workshop-feature">
-        <div>
-          <span className="eyebrow">WHAT THE TRAINING COVERS</span>
-          <h2>
-            Molecular preparation,
-            <br />
-            <em>docking and analysis.</em>
-          </h2>
-          <p>
-            Learn how to prepare protein and ligand files, run docking, inspect
-            poses and review ADMET predictions. The software and exercises
-            covered depend on the workshop. Contact us for the syllabus and
-            schedule of the next batch.
-          </p>
-          <div className="actions">
-            <Link href="/register" className="button button-ink">
-              Register for a workshop <ArrowUpRight size={16} />
-            </Link>
-            <Link href={workshop.enquiryHref} className="button button-outline">
-              Ask for batch dates
-            </Link>
-          </div>
-        </div>
-        <div className="workshop-tools">
-          {[
-            "PyMOL",
-            "AutoDock / Vina",
-            "Discovery Studio",
-            "SwissADME",
-            "PASS Online",
-            "ProTox",
-          ].map((t, i) => (
-            <div key={t}>
-              <span>0{i + 1}</span>
-              {t}
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="wrap method-section">
-        <span className="eyebrow">BEFORE YOU JOIN</span>
-        {[
-          [
-            "Fee & duration",
-            `The fee is ${workshop.fee} per workshop. Workshops run for 15 days or less; the exact duration depends on the batch.`,
-          ],
-          [
-            "Topics & software",
-            "Ask which tools and topics are included in the batch you want to join, along with any setup requirements.",
-          ],
-          [
-            "College workshops",
-            "Colleges and faculty can contact Chemizen Labs to discuss training for their students or research teams.",
-          ],
-        ].map(([t, d]) => (
-          <div className="method-row" key={t}>
-            <h3>{t}</h3>
-            <p>{d}</p>
-          </div>
-        ))}
-        <p className="notice">
-          Next batch dates have not been listed yet. Contact us for the current
-          schedule before registering.
-        </p>
-      </div>
-    </PageShell>
-  );
+  return <PageShell eyebrow="WORKSHOPS & INTERNSHIPS" title={<>Learn by doing.<br/><em className="script-accent">Understand by exploring.</em></>} intro="Online practical training in network pharmacology, molecular docking and computational drug discovery, with Chemizen Labs, Karnataka.">
+    <Programmes detailed />
+    <section className="wrap method-section"><span className="eyebrow">BEFORE YOU JOIN</span>
+      {[
+        ["Who can join?", "UG and PG students, research scholars, PhD scholars, faculty and industry professionals in pharmacy, biotechnology and life sciences."],
+        ["Session format", "Live online training with practical software workflows. The internship brochure specifies Google Meet. Recordings are provided for the programme duration; an e-certificate is issued on successful completion."],
+        ["Fees & next intake", "The September 2026 brochures list standard fees of ₹600 for UG/PG students and ₹800 for researchers, faculty and industry participants. Those cohort dates and early-registration deadlines are not a current offer. Please confirm the next batch, fee and timetable before registering."],
+        ["Prepare your laptop", "Ask for the software list and setup instructions for your chosen programme. The two tracks use different combinations of molecular viewers, docking software and online databases."],
+      ].map(([title, copy])=><div className="method-row" key={title}><h3>{title}</h3><p>{copy}</p></div>)}
+      <div className="actions"><Link href={workshop.enquiryHref} className="button button-ink">Ask about the next intake ↗</Link><Link href="/register" className="button button-outline">Registration information</Link></div>
+    </section>
+  </PageShell>;
 }
