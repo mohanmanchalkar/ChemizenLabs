@@ -1,9 +1,9 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { services } from "@/lib/content";
-import { ScientificArt } from "./ScientificArt";
 export function Offerings() {
   const track = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ start: true, end: false });
@@ -34,6 +34,7 @@ export function Offerings() {
   }
   return (
     <section className="offerings section">
+      <div className="offerings-bg-artwork" aria-hidden="true" />
       <div className="wrap">
         <div className="section-top">
           <div>
@@ -97,17 +98,29 @@ export function Offerings() {
               className={`offering-card card-tone-${i % 3}`}
               key={s.slug}
             >
-              <div className="offering-number">
-                <span>0{i + 1} / 08</span>
-                <ArrowUpRight size={19} />
+              <div className="offering-image-wrap">
+                <Image
+                  src={`/assets/offerings/${s.slug}.jpg`}
+                  alt={s.title}
+                  width={480}
+                  height={270}
+                  sizes="(max-width: 768px) 300px, 420px"
+                  className="offering-image"
+                />
+                <div className="offering-image-overlay" />
+                <span className="offering-badge">0{i + 1} / 08</span>
               </div>
-              <ScientificArt variant={i} />
-              <h3>{s.title}</h3>
-              <p>{s.short}</p>
-              <div className="tags">
-                {s.tags.slice(0, 2).map((t) => (
-                  <span key={t}>{t}</span>
-                ))}
+              <div className="offering-card-body">
+                <div className="offering-header-row">
+                  <h3>{s.title}</h3>
+                  <ArrowUpRight size={19} className="offering-arrow" />
+                </div>
+                <p>{s.short}</p>
+                <div className="tags">
+                  {s.tags.slice(0, 2).map((t) => (
+                    <span key={t}>{t}</span>
+                  ))}
+                </div>
               </div>
             </Link>
           ))}

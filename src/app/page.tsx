@@ -7,18 +7,24 @@ import { Instructor } from "@/components/Instructor";
 import { Footer } from "@/components/Footer";
 import { Credentials } from "@/components/Credentials";
 import { Programmes } from "@/components/Programmes";
+import { SectionDivider } from "@/components/SectionDivider";
+
 export default function Home() {
   return (
     <>
       <main id="main">
         <Hero />
         <Credentials />
+        <SectionDivider type="dark-to-light" />
         <Overview />
         <Programmes />
+        <SectionDivider type="light-to-dark" />
         <Offerings />
+        <SectionDivider type="offerings-to-light" />
         <Testimonials />
         <Insights />
         <Instructor />
+        <SectionDivider type="light-to-footer" />
       </main>
       <Footer />
     </>

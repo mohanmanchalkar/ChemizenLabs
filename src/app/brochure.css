@@ -1,9 +1,8 @@
-/* Preserve source pixels; adapt the logo's white backing through blending. */
-.brand-symbol { display: block; position: relative; width: 42px; height: 46px; overflow: hidden; flex: none; mix-blend-mode: multiply; }
-.brand-symbol img { position: absolute; width: 104px; height: 104px; max-width: none; left: -30px; top: -17px; }
+/* Brand lockup & typography */
+.brand-symbol { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; flex-shrink: 0; }
+.brand-symbol img { position: static; width: 100%; height: 100%; object-fit: contain; }
 .brand-wordmark { font-family: var(--font-serif), sans-serif; font-size: 19px; letter-spacing: -.035em; font-weight: 700; }
 .brand-wordmark .brand-labs { letter-spacing: .38em; font-size: 10px; margin-top: 7px; }
-.header[data-over-hero="true"] .brand-symbol, .footer .brand-symbol { mix-blend-mode: screen; filter: grayscale(1) invert(1); }
 .hero h1 em, .script-accent { font-family: var(--font-script), cursive; font-weight: 400; font-style: normal; letter-spacing: -.025em; font-size: 1.2em; line-height: 1.1; }
 .hero h1 { overflow-wrap: normal; }
 .hero-bottom { margin-top: 30px; align-items: end; }
@@ -69,9 +68,9 @@ main, .wrap, .hero-content, .section-top, .overview-grid, .protein-stage, .offer
   .hero-glass, .video-placeholder { width: 100%; min-width: 0; }
   .hero-glass { padding: 23px 20px; }
   .video-placeholder { max-width: none; }
-  .header .brand { gap: 5px; }
-  .brand-symbol { width: 33px; height: 38px; }
-  .brand-symbol img { width: 82px; height: 82px; left: -24px; top: -13px; }
+  .header .brand { gap: 6px; }
+  .brand-symbol { width: 28px; height: 28px; }
+  .brand-symbol img { position: static; width: 100%; height: 100%; }
   .brand-wordmark { font-size: 16px; }
   .brand-wordmark .brand-labs { font-size: 9px; }
   .credentials { padding-top: 34px; }
