@@ -40,8 +40,8 @@ export function Hero() {
             </div>
             <div className="workshop-quick-facts">
               <div>
-                <strong>{workshop.duration}</strong>
-                <span>Duration varies by workshop</span>
+                <strong>Certified Training</strong>
+                <span>Structured hands-on modules led by expert faculty</span>
               </div>
             </div>
             <p>

@@ -10,7 +10,48 @@ export async function POST(request: Request) {
       { error: "Request origin not accepted." },
       { status: 403 },
     );
-  if (!enquiriesConfigured())
+  if (!enquiriesConfigured()) {
+    if (process.env.NODE_ENV === "development") {
+      let devBody: unknown;
+      try {
+        devBody = await boundedJson(request);
+      } catch {
+        return NextResponse.json(
+          { error: "Unable to read the submission." },
+          { status: 400 },
+        );
+      }
+      try {
+        const { devStore } = await import("@/lib/dev-store");
+        const result = await submitEnquiry(devBody, {
+          save: async (input) => {
+            const { submissionToken, website, ...payload } = input;
+            void website;
+            void submissionToken;
+            return devStore.addEnquiry(payload);
+          },
+          notify: async () => {},
+        });
+        return NextResponse.json(
+          {
+            id: result.id,
+            message: "Your enquiry has been saved. Our team will contact you.",
+          },
+          { status: 201 },
+        );
+      } catch (e) {
+        const status = e instanceof SubmissionError ? e.status : 503;
+        return NextResponse.json(
+          {
+            error:
+              e instanceof SubmissionError
+                ? e.message
+                : "Unable to save your enquiry. Please try again.",
+          },
+          { status },
+        );
+      }
+    }
     return NextResponse.json(
       {
         error:
@@ -18,6 +59,7 @@ export async function POST(request: Request) {
       },
       { status: 503 },
     );
+  }
   let body: unknown;
   try {
     body = await boundedJson(request);

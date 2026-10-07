@@ -79,7 +79,7 @@ export const services = [
   {
     slug: "hands-on-workshops",
     title: "Hands-on scientific workshops",
-    short: `Practical software training · ${workshop.duration.toLowerCase()}.`,
+    short: "Practical software training · structured hands-on modules.",
     description: "Chemizen Labs offers short Network Pharmacology & CADD workshops and a separate one-month Molecular Docking internship. Training covers molecular preparation, docking, visualisation and property prediction. Contact us for the next intake, syllabus and fees.",
     tags: ["Live learning", "Real datasets", "Practical tools"],
     audience:

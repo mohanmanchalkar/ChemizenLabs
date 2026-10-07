@@ -1,7 +1,13 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-export function AdminLogin({ available }: { available: boolean }) {
+export function AdminLogin({
+  available,
+  isDevMode = false,
+}: {
+  available: boolean;
+  isDevMode?: boolean;
+}) {
   const [busy, setBusy] = useState(false),
     [error, setError] = useState("");
   const router = useRouter();
@@ -30,7 +36,32 @@ export function AdminLogin({ available }: { available: boolean }) {
         }
       }}
     >
-      {!available && (
+      {isDevMode && (
+        <div
+          style={{
+            background: "rgba(212, 175, 55, 0.1)",
+            border: "1px solid rgba(212, 175, 55, 0.4)",
+            borderRadius: "6px",
+            padding: "16px 18px",
+            marginBottom: "20px",
+            fontSize: "14px",
+            lineHeight: "1.6",
+          }}
+        >
+          <strong style={{ color: "#d4af37", display: "block", marginBottom: "6px" }}>
+            🔑 Local Dev Demo Mode Active
+          </strong>
+          <div>
+            <strong>Email:</strong> <code>admin@chemizenlabs.com</code>
+            <br />
+            <strong>Password:</strong> <code>chemizen2025</code>
+          </div>
+          <p style={{ marginTop: "8px", fontSize: "12px", opacity: 0.85, margin: "8px 0 0" }}>
+            Use these credentials to test the inbox, view mock enquiries, and update enquiry statuses.
+          </p>
+        </div>
+      )}
+      {!available && !isDevMode && (
         <p className="notice">
           Administrator sign-in is not configured yet. Complete the private
           server setup before signing in.

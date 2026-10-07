@@ -731,6 +731,85 @@ textarea:focus-visible,
   margin: 28px 0 12px;
   font-size: 12px;
 }
+.audiences {
+  display: flex;
+  flex-direction: column;
+}
+.audience-item {
+  border-bottom: 1px solid var(--line);
+  transition: background-color 0.2s ease;
+}
+.audience-summary {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 21px;
+  padding: 17px 0;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  color: var(--fg);
+  transition: color 0.25s ease;
+}
+.audience-summary:hover {
+  color: #11130e;
+}
+.audience-num {
+  font-size: 12px;
+  color: #96998d;
+  font-weight: 400;
+  min-width: 18px;
+}
+.audience-title {
+  flex: 1;
+}
+.audience-plus {
+  margin-left: auto;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
+}
+.audience-item.is-open .audience-plus {
+  transform: rotate(45deg);
+  color: var(--accent);
+}
+.audience-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.audience-item.is-open .audience-body {
+  grid-template-rows: 1fr;
+}
+.audience-inner {
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.25s ease, transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.audience-item.is-open .audience-inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+.audience-inner p,
+.audiences p {
+  font-size: 16px;
+  color: var(--muted);
+  padding: 0 20px 16px 39px;
+  margin: 0;
+  line-height: 1.6;
+}
 .audiences details {
   border-bottom: 1px solid var(--line);
 }
@@ -747,23 +826,8 @@ textarea:focus-visible,
 .audiences summary::-webkit-details-marker {
   display: none;
 }
-.audiences summary > span:first-child {
-  font-size: 12px;
-  color: #96998d;
-  font-weight: 400;
-}
-.audience-plus {
-  margin-left: auto;
-  font-weight: 400;
-  font-size: 20px;
-}
 .audiences details[open] .audience-plus {
   transform: rotate(45deg);
-}
-.audiences p {
-  font-size: 16px;
-  color: var(--muted);
-  padding: 0 20px 15px 34px;
 }
 .overview-copy .text-link {
   margin-top: 26px;
@@ -915,10 +979,29 @@ textarea:focus-visible,
   margin-top: 24px;
 }
 .carousel-buttons .icon-button {
-  border-color: #526056;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
 }
-.carousel-buttons .icon-button:hover {
-  background: #ffffff12;
+.carousel-buttons .icon-button svg {
+  stroke: #ffffff !important;
+  color: #ffffff !important;
+}
+.carousel-buttons .icon-button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-color: #ffffff !important;
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+}
+.carousel-buttons .icon-button:disabled {
+  opacity: 0.28 !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+.carousel-buttons .icon-button:disabled svg {
+  stroke: rgba(255, 255, 255, 0.4) !important;
 }
 .offering-track {
   display: flex;
@@ -1560,6 +1643,38 @@ textarea:focus-visible,
   color: #9ba6b4;
   margin-top: 20px;
 }
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #dbe4ea;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+.social-btn:hover {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: rgba(212, 175, 55, 0.6);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.25);
+}
+.social-btn svg {
+  transition: transform 0.25s ease;
+}
+.social-btn:hover svg {
+  transform: scale(1.1);
+}
 .footer-columns > div > .eyebrow {
   font-size: 12px;
   color: #9aa6b3;
@@ -1588,11 +1703,11 @@ textarea:focus-visible,
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  padding: 23px 0 0;
+  padding: 23px 0 32px;
   font-size: 12px;
   color: #8e9baa;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 .footer-legal > span:nth-child(2) {
   font-size: 12px;
@@ -1600,16 +1715,17 @@ textarea:focus-visible,
 }
 .footer-earth {
   width: 100%;
-  margin-top: -10px;
+  margin-top: clamp(-240px, -18vw, -90px) !important;
   overflow: hidden;
+  background: transparent;
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
 }
 .footer-earth img {
   width: 100%;
   height: auto;
   display: block;
-}
-.footer-earth {
-  background: #050c17;
 }
 @media (max-width: 1000px) {
   .instructor-layout {
@@ -1680,11 +1796,11 @@ textarea:focus-visible,
     display: none;
   }
   .footer-earth {
-    margin-top: 20px;
-    min-height: 180px;
+    margin-top: -80px !important;
+    min-height: 0;
   }
   .footer-earth img {
-    min-height: 180px;
+    min-height: 0;
     object-fit: cover;
   }
 }
@@ -2730,16 +2846,18 @@ select {
 .fluid-transition {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
   line-height: 0;
   pointer-events: none;
   z-index: 4;
+  transform: translateZ(0);
 }
 
 .fluid-wave-svg {
   display: block;
   width: 100%;
   height: 55px;
+  overflow: visible !important;
 }
 
 @media (min-width: 768px) {
@@ -2756,22 +2874,24 @@ select {
 
 .fluid-credentials-to-overview {
   background: #0c141a;
-  margin-top: -1px;
+  margin-top: -3px;
+  margin-bottom: -3px;
 }
 
 .fluid-programmes-to-offerings {
   background: #eeeee7;
-  margin-bottom: -1px;
+  margin-bottom: -3px;
 }
 
 .fluid-offerings-to-light {
   background: #0b121c;
-  margin-top: -1px;
+  margin-top: -3px;
+  margin-bottom: -3px;
 }
 
 .fluid-instructor-to-footer {
   background: var(--paper, #f7f6f2);
-  margin-bottom: -1px;
+  margin-bottom: -3px;
 }
 
 /* ==========================================================================

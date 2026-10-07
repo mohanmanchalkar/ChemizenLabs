@@ -4,7 +4,23 @@ export function sameOrigin(request: Request) {
     const expected = process.env.APP_ORIGIN
       ? new URL(process.env.APP_ORIGIN).origin
       : new URL(request.url).origin;
-    return request.headers.get("origin") === expected;
+    const origin = request.headers.get("origin");
+    if (!origin) return false;
+    if (origin === expected) return true;
+    if (process.env.NODE_ENV === "development") {
+      const originUrl = new URL(origin);
+      const expectedUrl = new URL(expected);
+      const isLocalHost = (h: string) =>
+        ["localhost", "127.0.0.1", "0.0.0.0"].includes(h);
+      if (
+        isLocalHost(originUrl.hostname) &&
+        isLocalHost(expectedUrl.hostname) &&
+        originUrl.port === expectedUrl.port
+      ) {
+        return true;
+      }
+    }
+    return false;
   } catch {
     return false;
   }

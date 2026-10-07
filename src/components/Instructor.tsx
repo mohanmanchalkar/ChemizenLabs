@@ -9,7 +9,7 @@ export function Instructor() {
           <span className="portrait-orbit" aria-hidden="true" />
           <span className="eyebrow">THE PERSON BEHIND THE TRAINING</span>
           <Image src="/assets/founder.jpeg" alt="Mohan L. Manchalkar, founder and trainer at Chemizen Labs" width={1198} height={1313} sizes="(max-width: 760px) 90vw, 40vw" />
-          <figcaption>From curiosity to discovery.</figcaption>
+          <figcaption>Model. Predict. Validate.</figcaption>
         </figure>
         <div className="instructor-copy">
           <span className="eyebrow">05 / MEET THE TRAINER</span>
@@ -20,8 +20,7 @@ export function Instructor() {
           </h2>
           <p>
             Mohan teaches CADD, molecular docking and research software at
-            Chemizen Labs. His workshops run for up to 15 days, depending on the
-            topic.
+            Chemizen Labs. He mentors students and faculty through structured hands-on CADD and docking cohorts.
           </p>
           <div className="instructor-name">
             <strong>Founder, Chemizen Labs</strong>

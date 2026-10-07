@@ -102,9 +102,6 @@ p {
   color: #a5b2c0;
   font-size: 15px;
 }
-.footer-earth {
-  margin-top: 24px;
-}
 @media (max-width: 1000px) {
   .desktop-nav {
     display: none;

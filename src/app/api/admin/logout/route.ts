@@ -12,7 +12,9 @@ export async function POST(request: Request) {
       const { error } = await (await sessionClient()).auth.signOut();
       if (error) throw error;
     }
-    return NextResponse.json({ ok: true });
+    const response = NextResponse.json({ ok: true });
+    response.cookies.delete("admin_session");
+    return response;
   } catch {
     return NextResponse.json(
       { error: "Could not sign out. Please try again." },

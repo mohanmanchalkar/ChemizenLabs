@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { ProteinViewer } from "./ProteinViewer";
+import { AudienceAccordion } from "./AudienceAccordion";
 const audiences = [
   [
     "01",
@@ -27,7 +28,7 @@ const audiences = [
     "Life-science institutions",
     "Colleges and laboratories arranging student workshops or faculty training.",
   ],
-];
+] as const;
 export function Overview() {
   return (
     <section className="section overview">
@@ -60,27 +61,16 @@ export function Overview() {
                 </span>
               </div>
               <div>
-                <strong>≤15</strong>
+                <strong>100%</strong>
                 <span>
-                  Days per
+                  Practical
                   <br />
-                  workshop
+                  workflow
                 </span>
               </div>
             </div>
             <span className="eyebrow audience-heading">WHO CAN JOIN?</span>
-            <div className="audiences">
-              {audiences.map(([n, title, desc]) => (
-                <details key={n}>
-                  <summary>
-                    <span>{n}</span>
-                    {title}
-                    <span className="audience-plus">+</span>
-                  </summary>
-                  <p>{desc}</p>
-                </details>
-              ))}
-            </div>
+            <AudienceAccordion items={audiences} />
             <Link className="text-link" href="/about">
               About Chemizen Labs <ArrowUpRight size={16} />
             </Link>

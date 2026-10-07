@@ -39,7 +39,7 @@
 .portrait-orbit::before, .portrait-orbit::after { content: ""; position: absolute; border: 1px solid #bcae99; border-radius: inherit; inset: 25px; }
 .portrait-orbit::after { inset: 50px; }
 .founder-portrait figcaption { background: #24352d; color: #f5eee1; position: relative; margin-inline: -24px; padding: 18px 24px; font: 35px/1.2 var(--font-script), cursive; text-align: center; }
-.footer-earth { margin-top: 18px; min-height: 0; }
+.footer-earth { min-height: 0; }
 .footer-earth img { width: 100%; height: auto; min-height: 0; object-fit: contain; }
 /* Let content tracks shrink and contain decorative graphics on small screens. */
 html, body { max-width: 100%; }

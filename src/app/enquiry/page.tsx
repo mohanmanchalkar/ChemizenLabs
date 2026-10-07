@@ -39,7 +39,9 @@ export default async function Enquiry({
         </aside>
         <EnquiryForm
           initialService={service}
-          available={enquiriesConfigured()}
+          available={
+            enquiriesConfigured() || process.env.NODE_ENV === "development"
+          }
         />
       </div>
     </PageShell>

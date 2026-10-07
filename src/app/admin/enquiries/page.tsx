@@ -88,7 +88,7 @@ export default async function Inbox({
                   </tr>
                 </thead>
                 <tbody>
-                  {rows?.map((row) => (
+                  {(rows as Array<{ id: string; created_at: string; name: string; email: string; service: string; status: string; email_status: string }> | undefined)?.map((row) => (
                     <tr key={row.id}>
                       <td>
                         {new Date(row.created_at).toLocaleDateString("en-GB", {

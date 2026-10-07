@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { workshop } from "@/lib/workshop";
+import { Brand } from "./Brand";
+import { SocialLinks } from "./SocialLinks";
 export function Footer() {
   return (
     <footer className="footer">
@@ -21,19 +23,15 @@ export function Footer() {
         </div>
         <div className="footer-columns">
           <div className="footer-brand">
-            <Link href="/" className="brand">
-              <span className="brand-mark">
-                c<span>·</span>
-              </span>
-              <span>
-                chemizen<span className="brand-labs">LABS</span>
-              </span>
+            <Link href="/" className="brand" aria-label="Chemizen Labs home">
+              <Brand theme="dark" />
             </Link>
             <p>
               CADD & molecular docking
               <br />
               workshops at Chemizen Labs.
             </p>
+            <SocialLinks />
           </div>
           <div>
             <span className="eyebrow">TRAINING & SERVICES</span>
