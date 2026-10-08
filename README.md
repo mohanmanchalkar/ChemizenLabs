@@ -11,13 +11,13 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000. The public site works without external service credentials. Registration displays a pending page, and the enquiry form explains that online submission is unavailable until configured. No submission is falsely reported as saved.
+Open http://localhost:3000. Registration shows the two brochure programmes and their Google Form enrolment links. The enquiry form explains when online submission is unavailable. Without Supabase, development reviews persist in the ignored `.local/reviews.json` file; this local mode is never enabled in production.
 
 On the supplied workstation, npm was absent. A local ignored npm copy was installed in `.tools/package`, so the equivalent command here is `node .tools/package/bin/npm-cli.js run dev`.
 
 ## Connect the enquiry backend
 
-1. Create a Supabase project and run `supabase/migrations/001_enquiries.sql` in its SQL editor. This is a one-time migration; future schema changes should be new migrations.
+1. Create a Supabase project and run `supabase/migrations/001_enquiries.sql`, then `supabase/migrations/002_reviews.sql` in its SQL editor. For an existing project with migration 001 applied, run only 002. See `REVIEWS_SETUP.md` for review moderation and local development details.
 2. Copy `.env.example` to `.env.local`. Set the Supabase URL, publishable key, service-role key, exact `APP_ORIGIN`, and a random `RATE_LIMIT_SECRET`. Restart the app after configuration changes. Never use a `NEXT_PUBLIC_` name for the service-role or email keys.
 3. In Supabase Authentication settings, **disable public user signups**. Create/invite your administrator using Supabase's dashboard and set the password privately there. The site has no registration route for admin accounts.
 4. Copy that account's user UUID into this SQL statement and run it in the SQL editor:
@@ -27,7 +27,7 @@ insert into public.admin_members(user_id)
 values ('REPLACE-WITH-ADMIN-USER-UUID');
 ```
 
-5. Sign in at `/admin/login`. `/admin/enquiries` is protected by verified server-side authentication and an admin membership check. PostgreSQL RLS independently prevents non-admin access. A hidden URL alone is never used as authorization.
+5. Sign in at `/admin/login`. `/admin/enquiries` and `/admin/reviews` are protected by verified server-side authentication and an admin membership check. PostgreSQL RLS independently prevents non-admin access. Review submissions remain private until approved.
 6. Set up Resend, verify a sender domain, and configure `RESEND_API_KEY`, `RESEND_FROM`, and `ADMIN_EMAIL`. Until email is configured, saved enquiries show an `unconfigured` notification status and remain visible to the admin.
 7. Send a real test enquiry after configuration and check both the dashboard and inbox. This live integration has not been exercised without your accounts.
 
@@ -48,11 +48,12 @@ values ('REPLACE-WITH-ADMIN-USER-UUID');
 - The owner has confirmed ₹600 per workshop and a duration of up to 15 days. Shared workshop details are in `src/lib/workshop.ts`. Dates and batch-specific syllabi still need confirmation; the fee is not applied to separate research services.
 - The header has a glass hover/focus highlight. Hero pointer ripples are limited to fine-pointer devices and stop for reduced-motion preferences; they do not appear on other sections or pages.
 
-- `GOOGLE_FORM_URL`: HTTPS `forms.gle` link or `docs.google.com/forms/` link. `/register` redirects only to one of these allowed hosts. No URL means a clear pending page.
+- `/register` shows two programme cards. The brochure's Google Form links, topics and timings are in `src/lib/programmes.ts`. The old `GOOGLE_FORM_URL` variable no longer bypasses programme selection. Brochure dates and fees are explicitly identified as historical and require confirmation for a new batch.
 - Eight services: `src/lib/content.ts`.
 - Three sourced educational articles: `src/lib/articles.ts`. Article diagrams and fictional example data are explicitly labeled.
 - The hero film and instructor photograph have intentional placeholders. Replace them when genuine media is available; there is no fake video play control.
-- Testimonials are development-only placeholders and are excluded from production. Add real, permissioned quotes before changing that behavior.
+- `/reviews` displays all approved learner reviews and defaults to Top rated, with Latest available. The homepage shows up to three approved reviews rated 4 or 5 stars. Visitors submit their name, rating and review; administrators moderate at `/admin/reviews`. Helpful reactions are unique per browser cookie and reversible. Development allows 100 submissions/hour for testing; production remains limited to three per network/hour. No fictional testimonials are seeded.
+- Reviews and enquiries support server-verified Cloudflare Turnstile CAPTCHA. Set both `NEXT_PUBLIC_TURNSTILE_SITE_KEY` and `TURNSTILE_SECRET_KEY`, then restart/rebuild. CAPTCHA is inactive with both keys blank; one missing key fails closed. See `REVIEWS_SETUP.md` for activation and safe localhost testing.
 - ISO/MSME claims and historical internship dates are not published until confirmed. Source claims remain in `content.txt`.
 - Original assets remain in `assets/`. The supplied `minimalisticDNA.png` has a baked-in checkerboard, so it is not displayed. The glossy DNA asset, hero image, protein geometry and Earth image are used.
 

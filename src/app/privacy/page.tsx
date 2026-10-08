@@ -14,6 +14,21 @@ export default function Privacy() {
       intro="How this website handles information you submit when asking about Chemizen Labs services."
     >
       <div className="wrap privacy-prose prose">
+        <h2>Reviews you choose to share</h2>
+        <p>
+          The review form collects a display name, a rating and your review
+          text. Submissions remain private until an administrator approves them.
+          Approved names, ratings and review text appear publicly. Rejected and
+          pending reviews are visible only to administrators. Contact
+          chemizenlabs@gmail.com to request correction or removal of your
+          review.
+        </p>
+        <p>
+          Marking a review helpful uses a random browser cookie and a local
+          browser preference to remember your choice. The server stores a hashed
+          identifier to prevent the same browser counting twice. These
+          preferences are used only for review reactions.
+        </p>
         <h2>What we collect</h2>
         <p>
           The enquiry form requests your name, email, service interest and
@@ -40,6 +55,13 @@ export default function Privacy() {
           add advertising or analytics cookies. A short-lived hashed network
           identifier is used to limit abusive submissions; it is not included in
           the admin enquiry record.
+        </p>
+        <h2>Security verification</h2>
+        <p>
+          When security verification is enabled, Cloudflare Turnstile checks
+          review and enquiry submissions to reduce automated spam. Cloudflare
+          processes technical browser and network information for this check.
+          Your review or enquiry text is not sent to its verification API.
         </p>
         <h2>Retention and requests</h2>
         <p>

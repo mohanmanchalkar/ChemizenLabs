@@ -1,6 +1,31 @@
 export function SocialLinks({ className = "" }: { className?: string }) {
   const socials = [
     {
+      name: "YouTube",
+      href: "https://youtube.com/@chemizenlabs",
+      title: "Watch Chemizen Labs on YouTube",
+      icon: (
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          aria-hidden="true"
+        >
+          <rect
+            x="2"
+            y="5"
+            width="20"
+            height="14"
+            rx="4"
+            stroke="currentColor"
+            strokeWidth="1.7"
+          />
+          <path d="m10 9 5 3-5 3z" fill="currentColor" />
+        </svg>
+      ),
+    },
+    {
       name: "LinkedIn",
       href: "https://www.linkedin.com/company/chemizenlabs/",
       title: "Follow Chemizen Labs on LinkedIn",
@@ -55,8 +80,8 @@ export function SocialLinks({ className = "" }: { className?: string }) {
     },
     {
       name: "Facebook",
-      href: "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fchemizenlabs.com",
-      title: "Share Chemizen Labs on Facebook",
+      href: "https://www.facebook.com/ChemizenLabs",
+      title: "Follow Chemizen Labs on Facebook",
       icon: (
         <svg
           viewBox="0 0 24 24"
@@ -71,8 +96,8 @@ export function SocialLinks({ className = "" }: { className?: string }) {
     },
     {
       name: "X (Twitter)",
-      href: "https://twitter.com/intent/tweet?text=Chemizen%20Labs%20-%20Hands-on%20training%20in%20computational%20drug%20discovery%2C%20docking%20and%20network%20pharmacology.&url=https%3A%2F%2Fchemizenlabs.com",
-      title: "Share Chemizen Labs on X (Twitter)",
+      href: "https://x.com/chemizenlabs",
+      title: "Follow Chemizen Labs on X",
       icon: (
         <svg
           viewBox="0 0 24 24"
@@ -88,7 +113,10 @@ export function SocialLinks({ className = "" }: { className?: string }) {
   ];
 
   return (
-    <div className={`social-links ${className}`} aria-label="Social media and sharing links">
+    <div
+      className={`social-links ${className}`}
+      aria-label="Chemizen Labs social and contact links"
+    >
       {socials.map((s) => (
         <a
           key={s.name}

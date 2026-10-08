@@ -1,55 +1,116 @@
-import { redirect } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
+import { ArrowUpRight, Check, FileDown } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
-import { googleFormUrl } from "@/lib/registration";
-import { workshop } from "@/lib/workshop";
-import { EnquiryForm } from "@/components/EnquiryForm";
-import { enquiriesConfigured } from "@/lib/supabase";
-export const dynamic = "force-dynamic";
-export const metadata = { title: "Registration" };
+import { programmes, brochureUrl } from "@/lib/programmes";
+export const metadata = { title: "Choose your workshop" };
 export default function Register() {
-  const url = googleFormUrl(process.env.GOOGLE_FORM_URL);
-  if (url) redirect(url);
   return (
     <PageShell
       eyebrow="WORKSHOP REGISTRATION"
       title={
         <>
-          Register for a CADD
+          Choose your next
           <br />
-          <em>workshop.</em>
+          <em className="script-accent">step in research.</em>
         </>
       }
-      intro="Register for our upcoming Network Pharmacology & CADD workshop or Molecular Docking internship. Fill in your details below and our team will get back to you with batch confirmation and syllabus."
+      intro="Two practical programmes from Chemizen Labs. Compare the topics, choose your track and enroll using its Google Form."
     >
-      <div className="wrap enquiry-layout">
-        <aside>
-          <span className="eyebrow">WORKSHOP DETAILS</span>
-          <h3>Upcoming Cohorts</h3>
-          <p>
-            Choose your preferred workshop topic, enter your contact information
-            and our team will confirm your seat and batch timings.
-          </p>
-          <div className="workshop-card" style={{ marginTop: "24px" }}>
-            <span className="eyebrow">ACTIVE WORKSHOP</span>
-            <h4 style={{ margin: "8px 0" }}>Hands-on CADD & Docking</h4>
-            <p style={{ fontSize: "14px", color: "var(--muted)", margin: 0 }}>
-              Practical software training · Structured hands-on modules led by expert faculty.
-            </p>
-          </div>
-          <div style={{ marginTop: "24px" }}>
-            <a href="mailto:chemizenlabs@gmail.com">chemizenlabs@gmail.com ↗</a>
-            <br />
-            <a href="tel:+916361009705">+91 63610 09705</a>
-          </div>
-        </aside>
-        <EnquiryForm
-          initialService="Hands-on scientific workshops"
-          available={
-            enquiriesConfigured() || process.env.NODE_ENV === "development"
-          }
-        />
-      </div>
+      <section
+        className="wrap registration-options"
+        aria-label="Training programmes"
+      >
+        <div className="registration-grid">
+          {programmes.map((p, i) => (
+            <article className="registration-card" key={p.number}>
+              <div className="registration-cover">
+                <Image
+                  src={
+                    i === 0
+                      ? "/assets/offerings-v2/molecular-design.jpg"
+                      : "/assets/offerings-v2/cadd-molecular-docking.jpg"
+                  }
+                  alt=""
+                  width={720}
+                  height={405}
+                  sizes="(max-width: 760px) 90vw, 45vw"
+                />
+                <span>{p.duration}</span>
+              </div>
+              <div className="registration-content">
+                <span className="eyebrow">
+                  PROGRAMME {p.number} / LIVE ONLINE
+                </span>
+                <h2>{p.title}</h2>
+                <p>{p.description}</p>
+                <ul>
+                  {p.topics.map((t) => (
+                    <li key={t}>
+                      <Check size={16} aria-hidden="true" />
+                      <span>{t}</span>
+                    </li>
+                  ))}
+                </ul>
+                <dl className="registration-facts">
+                  <div>
+                    <dt>Student fee</dt>
+                    <dd>₹600</dd>
+                  </div>
+                  <div>
+                    <dt>Research / faculty / industry</dt>
+                    <dd>₹800</dd>
+                  </div>
+                </dl>
+                <div className="registration-benefits">
+                  <span>Session recordings</span>
+                  <span>Completion e-certificate</span>
+                  <span>Doubt-clearing sessions</span>
+                </div>
+                <p className="registration-cohort">
+                  Cohort dates and session timings will be communicated to you.
+                </p>
+                <div className="registration-actions">
+                  <a
+                    className="button button-ink"
+                    href={p.formUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Enroll in this programme <ArrowUpRight size={17} />
+                  </a>
+                  <Link
+                    href={`/enquiry?service=${encodeURIComponent(p.title)}`}
+                    className="button button-outline"
+                  >
+                    Outside India? Enquire here <ArrowUpRight size={17} />
+                  </Link>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div className="registration-note">
+          <a
+            href={brochureUrl}
+            className="text-link"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FileDown size={17} /> Read the brochure
+          </a>
+        </div>
+        <div className="registration-help">
+          <h3>Not sure which track fits?</h3>
+          <p>Tell us your background and what you want to learn.</p>
+          <Link
+            href="/enquiry?service=Hands-on%20scientific%20workshops"
+            className="text-link"
+          >
+            Ask Chemizen Labs <ArrowUpRight size={16} />
+          </Link>
+        </div>
+      </section>
     </PageShell>
   );
 }

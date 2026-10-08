@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 import { services } from "@/lib/content";
 import { PageShell } from "@/components/PageShell";
 import { ScientificArt } from "@/components/ScientificArt";
@@ -45,8 +46,18 @@ export default async function Service({
           </Link>
         </div>
         <div className="detail-art">
-          <ScientificArt variant={i} />
-          <span>{s.tags.join(" / ")}</span>
+          <div className="detail-image-wrap">
+            <Image
+              src={`/assets/offerings-v2/${s.slug}.jpg`}
+              alt={s.title}
+              width={720}
+              height={405}
+              priority
+              className="detail-feature-image"
+            />
+            <div className="detail-image-overlay" />
+          </div>
+          <span>{s.tags.join(" · ")}</span>
         </div>
       </div>
       <section className="wrap method-section">

@@ -100,7 +100,7 @@ export function Offerings() {
             >
               <div className="offering-image-wrap">
                 <Image
-                  src={`/assets/offerings/${s.slug}.jpg`}
+                  src={`/assets/offerings-v2/${s.slug}.jpg`}
                   alt={s.title}
                   width={480}
                   height={270}

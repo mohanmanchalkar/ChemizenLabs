@@ -4,6 +4,8 @@ import { enquiriesConfigured, serviceClient } from "@/lib/supabase";
 import { boundedJson, sameOrigin, rateKey, hashedEmail } from "@/lib/security";
 import { submitEnquiry, SubmissionError } from "@/lib/submission";
 import { notifyAdmin } from "@/lib/notifications";
+import { captchaSubmission, verifyCaptcha } from "@/lib/captcha";
+import { isFormError } from "@/lib/form-error";
 export async function POST(request: Request) {
   if (!sameOrigin(request))
     return NextResponse.json(
@@ -22,8 +24,10 @@ export async function POST(request: Request) {
         );
       }
       try {
+        const { payload, token } = captchaSubmission(devBody);
+        await verifyCaptcha(token, request, "enquiry");
         const { devStore } = await import("@/lib/dev-store");
-        const result = await submitEnquiry(devBody, {
+        const result = await submitEnquiry(payload, {
           save: async (input) => {
             const { submissionToken, website, ...payload } = input;
             void website;
@@ -40,13 +44,12 @@ export async function POST(request: Request) {
           { status: 201 },
         );
       } catch (e) {
-        const status = e instanceof SubmissionError ? e.status : 503;
+        const status = isFormError(e) ? e.status : 503;
         return NextResponse.json(
           {
-            error:
-              e instanceof SubmissionError
-                ? e.message
-                : "Unable to save your enquiry. Please try again.",
+            error: isFormError(e)
+              ? e.message
+              : "Unable to save your enquiry. Please try again.",
           },
           { status },
         );
@@ -70,7 +73,9 @@ export async function POST(request: Request) {
     );
   }
   try {
-    const result = await submitEnquiry(body, {
+    const { payload: submission, token } = captchaSubmission(body);
+    await verifyCaptcha(token, request, "enquiry");
+    const result = await submitEnquiry(submission, {
       save: async (input) => {
         const { submissionToken, website, ...payload } = input;
         void website;
@@ -112,13 +117,12 @@ export async function POST(request: Request) {
       { status: 201 },
     );
   } catch (e) {
-    const status = e instanceof SubmissionError ? e.status : 503;
+    const status = isFormError(e) ? e.status : 503;
     return NextResponse.json(
       {
-        error:
-          e instanceof SubmissionError
-            ? e.message
-            : "Unable to save your enquiry. Please try again.",
+        error: isFormError(e)
+          ? e.message
+          : "Unable to save your enquiry. Please try again.",
       },
       { status },
     );

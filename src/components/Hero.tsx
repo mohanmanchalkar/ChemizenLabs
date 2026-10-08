@@ -19,16 +19,18 @@ export function Hero() {
       <div className="hero-content wrap">
         <div className="hero-intro">
           <span className="eyebrow">
-            <span className="status-dot" /> NETWORK PHARMACOLOGY & DRUG DISCOVERY
+            <span className="status-dot" /> NETWORK PHARMACOLOGY & DRUG
+            DISCOVERY
           </span>
           <h1>
             Learn molecular
             <br />
-            <em>docking.</em>
+            <em>Docking.</em>
           </h1>
           <p>
             Hands-on training in molecular docking, network pharmacology and
-            computational drug discovery. Learn the tools. Understand the results.
+            computational drug discovery. Learn the tools. Understand the
+            results.
           </p>
         </div>
         <div className="hero-bottom">

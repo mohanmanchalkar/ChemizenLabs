@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
 import { serviceOptions } from "@/lib/content";
+import { Captcha, captchaEnabled } from "./Captcha";
 export function EnquiryForm({
   initialService = "",
   available,
@@ -13,12 +14,18 @@ export function EnquiryForm({
   const form = useRef<HTMLFormElement>(null);
   const token = useRef<string | null>(null);
   const submitting = useRef(false);
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [captchaReset, setCaptchaReset] = useState(0);
   const [busy, setBusy] = useState(false),
     [error, setError] = useState(""),
     [saved, setSaved] = useState<string | null>(null);
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (submitting.current) return;
+    if (captchaEnabled && !captchaToken) {
+      setError("Please complete the verification first.");
+      return;
+    }
     submitting.current = true;
     setBusy(true);
     setError("");
@@ -32,6 +39,7 @@ export function EnquiryForm({
           ...Object.fromEntries(data),
           consent: data.get("consent") === "on",
           submissionToken: token.current,
+          captchaToken,
         }),
       });
       const body = await response.json();
@@ -51,6 +59,8 @@ export function EnquiryForm({
     } finally {
       setBusy(false);
       submitting.current = false;
+      setCaptchaToken("");
+      setCaptchaReset((n) => n + 1);
     }
   }
   if (saved)
@@ -172,13 +182,22 @@ export function EnquiryForm({
           enquiry. <Link href="/privacy">Read about privacy.</Link>
         </span>
       </label>
+      <Captcha
+        action="enquiry"
+        active={available}
+        resetKey={captchaReset}
+        onToken={setCaptchaToken}
+      />
       {error && (
         <p className="form-error" role="alert">
           {error}
         </p>
       )}
       <div className="form-submit">
-        <button className="button button-ink" disabled={busy || !available}>
+        <button
+          className="button button-ink"
+          disabled={busy || !available || (captchaEnabled && !captchaToken)}
+        >
           {busy
             ? "Sending your enquiry…"
             : available

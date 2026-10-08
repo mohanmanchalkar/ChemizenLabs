@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { Brand } from "./Brand";
 const links = [
+  ["Home", "/"],
   ["Workshops", "/workshops"],
   ["Services", "/services"],
   ["Journal", "/journal"],
@@ -164,7 +165,15 @@ export function Header() {
             <Link
               key={url}
               href={url}
-              aria-current={path.startsWith(url) ? "page" : undefined}
+              aria-current={
+                (
+                  url === "/"
+                    ? path === "/"
+                    : path === url || path.startsWith(`${url}/`)
+                )
+                  ? "page"
+                  : undefined
+              }
             >
               {name}
             </Link>
@@ -190,6 +199,15 @@ export function Header() {
                 <Link
                   key={url}
                   href={url}
+                  aria-current={
+                    (
+                      url === "/"
+                        ? path === "/"
+                        : path === url || path.startsWith(`${url}/`)
+                    )
+                      ? "page"
+                      : undefined
+                  }
                   onClick={() => {
                     setOpen(false);
                     button.current?.focus();

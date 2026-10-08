@@ -8,6 +8,7 @@ import { Footer } from "@/components/Footer";
 import { Credentials } from "@/components/Credentials";
 import { Programmes } from "@/components/Programmes";
 import { SectionDivider } from "@/components/SectionDivider";
+export const dynamic = "force-dynamic";
 
 export default function Home() {
   return (

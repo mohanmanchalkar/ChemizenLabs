@@ -27,13 +27,14 @@ export default function About() {
           </h2>
           <p>
             Start with a structure, a set of compounds or a research question.
-            Chemizen Labs programmes take learners through the software used
-            to investigate it: from network and target analysis to docking,
+            Chemizen Labs programmes take learners through the software used to
+            investigate it: from network and target analysis to docking,
             molecular visualisation and ADMET prediction. Choose a short
             workshop or a month-long practical internship.
           </p>
           <p>
-            Students, faculty and researchers can also enquire about help with
+            Chemizen Labs has trained 1000+ students and faculty. Students,
+            faculty and researchers can also enquire about help with
             computational methods, data analysis, scientific writing and thesis
             planning. These services are discussed separately from workshop
             fees.

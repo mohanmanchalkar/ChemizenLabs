@@ -1,5 +1,26 @@
 # Verification record
 
+## Review fixes and CAPTCHA support — October 8, 2026
+
+- Added Home to desktop/mobile navigation with exact matching for its active state.
+- Replaced the development store's cached class instance with shared write queues and fresh methods. Error responses keep their intended status/message across server bundles. Older local records without a votes array are supported.
+- Increased development-only limits to 100 review submissions and 300 reaction requests per hour; production PostgreSQL limits remain 3 and 30 respectively.
+- Changed the review action to Submit and the success message to a plain thank-you. Admin approval still controls public visibility.
+- Homepage reviews require 4 or 5 stars; the full page defaults to Top rated and still includes every published rating.
+- Added optional Cloudflare Turnstile to both forms, with server validation, action/hostname checks, token refresh, preserved form fields, and production rejection of dummy keys. Requires the owner's site/secret keys to activate.
+- Automated regression checks include fourth local submission, real review/reaction route handlers, repeat/undo reactions, rate-limit responses, writes from separate module instances, older local-store compatibility, CAPTCHA failure cases, and successful CAPTCHA-protected review/enquiry saves. Browser interaction and live Cloudflare checks remain pending.
+- Final checks: all 31 tests, TypeScript, and the optimized production build pass.
+
+## Reviews, registration and footer update — October 8, 2026
+
+- Hero now uses upright “Docking”; the trainer and About page include the owner-supplied 1000+ students and faculty figure.
+- Added responsive programme selection cards with both brochure Google Forms, labelled brochure dates and fees, and the brochure download.
+- Added footer profile links, a liquid glass share control with clipboard/manual fallback, and a QR code for the current site origin.
+- Added public reviews, homepage top-rated previews, a name/rating/text submission dialog, Helpful reactions, and protected admin moderation. Unapproved reviews are never public.
+- TypeScript, the production build, and all 27 tests pass. New tests execute both real migrations in embedded PostgreSQL and cover approval/rejection, anonymous/non-admin denial, column permissions, duplicate submissions, reaction uniqueness, rate limits, and local persistence.
+- Production requires applying `002_reviews.sql` to the existing Supabase project. Live Supabase and browser visual/interaction checks remain outstanding; automated results are not visual verification.
+- Manual checks to finish: modal keyboard/focus behavior; mobile cards; QR scanning on the deployed URL; device sharing; submit → approve → public page; Helpful toggle; sorting and pagination.
+
 ## Workshop copy and liquid-glass update — September 30, 2026
 - Replaced generic marketing headings across public pages with workshop, trainer and research-service descriptions.
 - Added the owner-supplied fee (₹600 per workshop) and duration (15 days or less) to the homepage, workshop, registration and trainer information. Research-service fees remain separate.

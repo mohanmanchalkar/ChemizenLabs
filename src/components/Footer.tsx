@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { workshop } from "@/lib/workshop";
 import { Brand } from "./Brand";
 import { SocialLinks } from "./SocialLinks";
+import { FooterShare } from "./FooterShare";
 export function Footer() {
   return (
     <footer className="footer">
@@ -32,6 +33,7 @@ export function Footer() {
               workshops at Chemizen Labs.
             </p>
             <SocialLinks />
+            <FooterShare />
           </div>
           <div>
             <span className="eyebrow">TRAINING & SERVICES</span>
@@ -43,6 +45,7 @@ export function Footer() {
             <span className="eyebrow">ABOUT & RESOURCES</span>
             <Link href="/about">About Chemizen</Link>
             <Link href="/insights">Learning guides</Link>
+            <Link href="/reviews">Learner reviews</Link>
             <Link href="/register">Registration</Link>
           </div>
           <div>

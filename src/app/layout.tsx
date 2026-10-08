@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Source_Sans_3, IBM_Plex_Sans, Allura } from "next/font/google";
+import localFont from "next/font/local";
 import { Header } from "@/components/Header";
 import { CustomCursor } from "@/components/CustomCursor";
 import { ScrollTransitions } from "@/components/ScrollTransitions";
@@ -7,14 +7,22 @@ import "./globals.css";
 import "./effects.css";
 import "./readability.css";
 import "./brochure.css";
-const script = Allura({ subsets: ["latin"], weight: "400", variable: "--font-script", display: "swap" });
-const sans = Source_Sans_3({
-  subsets: ["latin"],
+import "./community.css";
+const script = localFont({
+  src: "./fonts/allura-latin.woff2",
+  weight: "400",
+  variable: "--font-script",
+  display: "swap",
+});
+const sans = localFont({
+  src: "./fonts/source-sans-3-latin.woff2",
+  weight: "200 900",
   variable: "--font-sans",
   display: "swap",
 });
-const serif = IBM_Plex_Sans({
-  subsets: ["latin"],
+const serif = localFont({
+  src: "./fonts/ibm-plex-sans-latin.woff2",
+  weight: "100 700",
   variable: "--font-serif",
   display: "swap",
 });

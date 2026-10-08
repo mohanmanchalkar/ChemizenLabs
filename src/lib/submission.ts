@@ -1,12 +1,6 @@
 import { enquirySchema, type EnquiryInput } from "./enquiry-schema";
-export class SubmissionError extends Error {
-  constructor(
-    public status: number,
-    message: string,
-  ) {
-    super(message);
-  }
-}
+import { FormError } from "./form-error";
+export class SubmissionError extends FormError {}
 export type SavedSubmission = { id: string; duplicate: boolean };
 export type SubmissionDependencies = {
   save: (input: EnquiryInput) => Promise<SavedSubmission>;
