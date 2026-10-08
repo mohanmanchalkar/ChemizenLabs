@@ -12,50 +12,8 @@ export interface DevEnquiry {
   consent: boolean;
 }
 
-const initialEnquiries: DevEnquiry[] = [
-  {
-    id: "e1a2b3c4-1111-4444-8888-123456789abc",
-    created_at: new Date(Date.now() - 3600000 * 2).toISOString(),
-    name: "Dr. Sneha Rao",
-    email: "sneha.rao@biotech.ac.in",
-    phone: "+91 98450 12345",
-    institution: "Bangalore University - Dept of Biochemistry",
-    service: "CADD & molecular docking",
-    message: "Interested in registering for the upcoming molecular docking cohort. Would like to understand the syllabus regarding PyMOL, AutoDock and PASS analysis for our doctoral scholars.",
-    status: "new",
-    email_status: "unconfigured",
-    consent: true,
-  },
-  {
-    id: "f2b3c4d5-2222-4444-8888-23456789abcd",
-    created_at: new Date(Date.now() - 3600000 * 24).toISOString(),
-    name: "Prof. Rajesh K.",
-    email: "rajesh.k@pharma.edu",
-    phone: "+91 94480 54321",
-    institution: "KLE College of Pharmacy",
-    service: "Hands-on scientific workshops",
-    message: "We would like to conduct an online workshop on Network Pharmacology & CADD for 45 M.Pharm students. Please let us know available dates, duration and institutional fee details.",
-    status: "contacted",
-    email_status: "unconfigured",
-    consent: true,
-  },
-  {
-    id: "a3c4d5e6-3333-4444-8888-3456789abcde",
-    created_at: new Date(Date.now() - 3600000 * 72).toISOString(),
-    name: "Ananya Patel",
-    email: "ananya.patel@gmail.com",
-    phone: "+91 87654 32109",
-    institution: "Manipal College of Pharmaceutical Sciences",
-    service: "ADME/Tox & target identification",
-    message: "Inquiring about SwissADME and ProTox predictive modeling mentoring for my postgraduate dissertation thesis.",
-    status: "closed",
-    email_status: "unconfigured",
-    consent: true,
-  },
-];
-
 class DevEnquiryStore {
-  private enquiries: DevEnquiry[] = [...initialEnquiries];
+  private enquiries: DevEnquiry[] = [];
 
   getAll(status?: string, page = 1, pageSize = 20) {
     let filtered = [...this.enquiries];
@@ -121,12 +79,12 @@ class DevEnquiryStore {
 // Global singleton to persist state across dev hot-reloads
 declare global {
   // eslint-disable-next-line no-var
-  var __chemizen_dev_store__: DevEnquiryStore | undefined;
+  var __chemizen_empty_dev_store__: DevEnquiryStore | undefined;
 }
 
 export const devStore =
-  globalThis.__chemizen_dev_store__ ||
-  (globalThis.__chemizen_dev_store__ = new DevEnquiryStore());
+  globalThis.__chemizen_empty_dev_store__ ||
+  (globalThis.__chemizen_empty_dev_store__ = new DevEnquiryStore());
 
 export function createDevClient() {
   return {
@@ -144,7 +102,8 @@ export function createDevClient() {
           const pageSize = 20;
 
           const queryObj = {
-            order: (_field: string, _opts?: { ascending?: boolean }) => queryObj,
+            order: (_field: string, _opts?: { ascending?: boolean }) =>
+              queryObj,
             range: (from: number, to: number) => {
               currentPage = Math.floor(from / pageSize) + 1;
               return queryObj;

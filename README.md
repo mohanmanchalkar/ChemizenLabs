@@ -4,6 +4,11 @@ Independent Next.js / TypeScript website, with Supabase enquiry storage and priv
 
 ## Run locally
 
+The local administrator login uses private `LOCAL_ADMIN_EMAIL` and
+`LOCAL_ADMIN_PASSWORD` settings in `.env.local`; there are no public demo
+credentials. Production authentication uses Supabase. See `DEPLOYMENT.md` for
+the Vercel launch checklist.
+
 Requires Node.js 20.9 or newer and npm.
 
 ```sh

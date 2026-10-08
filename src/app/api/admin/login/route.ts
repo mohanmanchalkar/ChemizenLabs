@@ -2,6 +2,12 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { boundedJson, sameOrigin, rateKey } from "@/lib/security";
 import {
+  localAdminConfigured,
+  localAdminCredentialsMatch,
+  createLocalAdminSession,
+  LOCAL_ADMIN_SESSION_SECONDS,
+} from "@/lib/local-admin";
+import {
   enquiriesConfigured,
   serviceClient,
   sessionClient,
@@ -17,7 +23,7 @@ export async function POST(request: Request) {
       { status: 403 },
     );
   if (!enquiriesConfigured()) {
-    if (process.env.NODE_ENV === "development") {
+    if (localAdminConfigured()) {
       try {
         const input = schema.safeParse(await boundedJson(request));
         if (!input.success)
@@ -26,23 +32,20 @@ export async function POST(request: Request) {
             { status: 400 },
           );
         const { email, password } = input.data;
-        if (
-          email.toLowerCase() === "admin@chemizenlabs.com" &&
-          password === "chemizen2025"
-        ) {
+        if (localAdminCredentialsMatch(email, password)) {
           const response = NextResponse.json({ ok: true });
-          response.cookies.set("admin_session", "dev-chemizen-admin", {
+          response.cookies.set("admin_session", createLocalAdminSession(), {
             httpOnly: true,
             sameSite: "lax",
             path: "/",
             secure: false,
+            maxAge: LOCAL_ADMIN_SESSION_SECONDS,
           });
           return response;
         }
         return NextResponse.json(
           {
-            error:
-              "Unable to sign in. In development mode, use admin@chemizenlabs.com and password chemizen2025.",
+            error: "Unable to sign in with these credentials.",
           },
           { status: 401 },
         );

@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { authConfigured, sessionClient } from "./supabase";
 import { createDevClient } from "./dev-store";
+import { validLocalAdminSession } from "./local-admin";
 
 export async function getAdmin() {
   if (authConfigured()) {
@@ -27,13 +28,13 @@ export async function getAdmin() {
     try {
       const jar = await cookies();
       const devSession = jar.get("admin_session")?.value;
-      if (devSession === "dev-chemizen-admin") {
+      if (validLocalAdminSession(devSession)) {
         return {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           client: createDevClient() as any,
           user: {
             id: "dev-admin-id",
-            email: "admin@chemizenlabs.com",
+            email: process.env.LOCAL_ADMIN_EMAIL!,
           },
         };
       }
