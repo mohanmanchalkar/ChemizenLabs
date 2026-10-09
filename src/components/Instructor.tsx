@@ -20,7 +20,7 @@ export function Instructor() {
         <div className="instructor-copy">
           <span className="eyebrow">05 / MEET THE TRAINER</span>
           <h2>
-            Mohan L.
+            Mohan
             <br />
             <em>Manchalkar</em>
           </h2>
