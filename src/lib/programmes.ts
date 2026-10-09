@@ -14,7 +14,7 @@ export const programmes = [
     ],
     cohort: "Brochure cohort: 17–30 September 2026",
     time: "8–9 PM",
-    formUrl: "https://forms.gle/Tz8z4TW9xeBvGEXs8",
+    formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdEDTqh8M8wZmROv_I-9xVTyrX8oqlt8IOIR_crGvkI4F8bfg/viewform?usp=send_form",
   },
   {
     number: "02",
@@ -30,6 +30,6 @@ export const programmes = [
     ],
     cohort: "Brochure cohort: 17 September–16 October 2026",
     time: "7–8 PM IST",
-    formUrl: "https://forms.gle/uaY4Zsdg9vysh7VQA",
+    formUrl: "https://docs.google.com/forms/d/e/1FAIpQLScggo6XLhNIIjBwGr42o79eeHz_gYR9HUGipRn3rvX1idrbNQ/viewform?usp=send_form",
   },
 ];
