@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, ArrowDown, AudioLines } from "lucide-react";
+import { ArrowUpRight, ArrowDown } from "lucide-react";
 import { HeroRipples } from "./HeroRipples";
+import { HeroVideo } from "./HeroVideo";
 import { workshop } from "@/lib/workshop";
 export function Hero() {
   return (
@@ -17,21 +18,24 @@ export function Hero() {
       <div className="hero-shade" />
       <HeroRipples />
       <div className="hero-content wrap">
-        <div className="hero-intro">
-          <span className="eyebrow">
-            <span className="status-dot" /> NETWORK PHARMACOLOGY & DRUG
-            DISCOVERY
-          </span>
-          <h1>
-            Learn molecular
-            <br />
-            <em>Docking.</em>
-          </h1>
-          <p>
-            Hands-on training in molecular docking, network pharmacology and
-            computational drug discovery. Learn the tools. Understand the
-            results.
-          </p>
+        <div className="hero-top">
+          <div className="hero-intro">
+            <span className="eyebrow">
+              <span className="status-dot" /> NETWORK PHARMACOLOGY & DRUG
+              DISCOVERY
+            </span>
+            <h1>
+              Learn molecular
+              <br />
+              <em>Docking.</em>
+            </h1>
+            <p>
+              Hands-on training in molecular docking, network pharmacology and
+              computational drug discovery. Learn the tools. Understand the
+              results.
+            </p>
+          </div>
+          <HeroVideo />
         </div>
         <div className="hero-bottom">
           <div className="hero-glass">
@@ -60,28 +64,6 @@ export function Hero() {
             </div>
             <div className="hero-note">
               Contact us for the next batch dates and syllabus.
-            </div>
-          </div>
-          <div
-            className="video-placeholder"
-            aria-label="Introduction video coming soon"
-          >
-            <div className="video-top">
-              <span className="eyebrow">ABOUT CHEMIZEN LABS</span>
-              <span>VIDEO</span>
-            </div>
-            <div className="video-symbol">
-              <AudioLines size={46} strokeWidth={1} />
-            </div>
-            <div>
-              <span className="video-title">
-                Chemizen Labs
-                <br />
-                CADD workshops
-              </span>
-              <span className="video-status">
-                Workshop introduction · Video coming soon
-              </span>
             </div>
           </div>
         </div>

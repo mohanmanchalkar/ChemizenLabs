@@ -1,0 +1,199 @@
+.hero-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 40px;
+}
+.hero-video {
+  width: 100%;
+  margin-top: 54px;
+  flex-shrink: 0;
+  min-width: 0;
+}
+.video-placeholder.hero-video-frame {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  display: block;
+  aspect-ratio: 16 / 9;
+  container-type: inline-size;
+  overflow: hidden;
+  background: #0a1530;
+  isolation: isolate;
+}
+.hero-video-player,
+.hero-video-player iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.hero-video-player {
+  opacity: 0;
+  pointer-events: none;
+  background: #080d18;
+}
+.hero-video-player[data-visible="true"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+.hero-video-cover {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: clamp(14px, 4cqw, 26px);
+  border: 0;
+  background: #0a1530;
+  color: #f7f6f2;
+  text-align: left;
+  isolation: isolate;
+}
+.hero-video-cover:disabled {
+  opacity: 1;
+  cursor: progress;
+}
+.hero-video-cover:focus-visible {
+  outline: 3px solid #ff9c7e;
+  outline-offset: -7px;
+}
+.hero-video-cover .hero-video-dna {
+  left: auto !important;
+  right: -18% !important;
+  width: 76% !important;
+  height: 112% !important;
+  top: -6% !important;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+  opacity: 0.86;
+  transition: transform 500ms ease;
+}
+.hero-video-cover-copy {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 43%;
+}
+.hero-video-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  margin-bottom: clamp(8px, 2.4cqw, 14px);
+}
+.hero-video-symbol {
+  width: clamp(24px, 6cqw, 34px);
+  height: auto;
+  flex-shrink: 0;
+}
+.hero-video-logo {
+  width: clamp(80px, 22cqw, 130px);
+  min-width: 0;
+  height: auto;
+}
+.hero-video-heading {
+  font-family: var(--font-serif), sans-serif;
+  font-size: clamp(18px, 5.6cqw, 32px);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+.hero-video-description {
+  display: block;
+  max-width: 210px;
+  margin-top: clamp(8px, 2.4cqw, 14px);
+  font-size: clamp(11px, 2.6cqw, 15px);
+  line-height: 1.4;
+  color: #d1d9e6;
+}
+.hero-video-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  font-size: clamp(11px, 2.6cqw, 14px);
+  font-weight: 600;
+}
+.hero-video-play-label {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+.hero-video-play-icon {
+  width: clamp(44px, 11cqw, 64px);
+  height: clamp(44px, 11cqw, 64px);
+  display: grid;
+  place-items: center;
+  border: 1px solid #ffffff70;
+  border-radius: 50%;
+  background: #ffffff12;
+  backdrop-filter: blur(12px);
+  transition:
+    background-color 200ms ease,
+    transform 200ms ease;
+}
+.hero-video-play-icon .lucide-play {
+  margin-left: 3px;
+}
+.hero-video-loading {
+  animation: hero-video-spin 1s linear infinite;
+}
+.hero-video .hero-video-notice,
+.hero-video-fallback {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 12px;
+  color: #e7edf5;
+}
+.hero-video-fallback {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+@keyframes hero-video-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .hero-video-cover:not(:disabled):hover .hero-video-dna {
+    transform: scale(1.035);
+  }
+  .hero-video-cover:not(:disabled):hover .hero-video-play-icon {
+    background: #ffffff26;
+    transform: scale(1.06);
+  }
+}
+@media (max-width: 1000px) {
+  .hero-top {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+  .hero-video {
+    max-width: 600px;
+    margin: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-video-loading {
+    animation: none;
+  }
+  .hero-video-cover .hero-video-dna,
+  .hero-video-play-icon {
+    transition: none;
+  }
+}

@@ -8,6 +8,7 @@ import "./effects.css";
 import "./readability.css";
 import "./brochure.css";
 import "./community.css";
+import "./hero-video.css";
 const script = localFont({
   src: "./fonts/allura-latin.woff2",
   weight: "400",
